@@ -1,0 +1,30 @@
+<div style="height: 100vh;">
+  <div class="container" style="display: flex;justify-content: center;align-items: center;">
+    <h2>Mot de passe oublié ?</h2>
+    <br><br><br><br><br><br><br><br><br><br>
+  </div>
+
+  <div class="container" style="width: 80%;">
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    label: false,
+                    placeholder: "Votre email",
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+      </div>
+
+      <div class="form-actions" style="display: flex;justify-content: center;">
+        <%= f.button :submit, "Nouveaux", class: 'button' %>
+      </div>
+    <% end %>
+    <hr>
+  </div>
+  <br>
+  <div style="display: flex;justify-content: center;text-align: center;">
+    <small> <%= render "devise/shared/links" %></small>
+  </div>
+</div>

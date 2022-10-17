@@ -1,0 +1,42 @@
+<div class="fixed">
+  <%= render 'shared/navbar' %>
+  <div class="container">
+    <h2 style="text-align: center;">Trouve ton prochain tournage</h2>
+    <br>
+  </div>
+  <%= render 'shared/filterbarjob' %>
+</div>
+
+<div class="container" data-filtre-target="filtrable">
+  <% @jobs.each do |j| %>
+    <% if j.date >= Date.today %>
+      <%= link_to job_path(j) do %>
+        <div class="card-product">
+          <%# if p.photos.attached? %>
+            <%# p.photos.each do |photo| %>
+              <%#= cl_image_tag photo.key, height: 150, crop: :fill, effect: "art:quartz", class: 'card-product-img' %>
+            <%# end %>
+          <%# else %>
+              <img src="https://source.unsplash.com/random?actor" class="card-product-img"/>
+          <%# end %>
+          <div class="card-product-infos">
+            <div>
+              <h2><%= j.titre %></h2>
+              <p><%= j.description.truncate(80) %></p>
+            </div>
+            <div class="card-trip-pricing">
+              <span style="text-align: start;">
+                <%= j.created_at %>
+                <i class="fa-solid fa-location-dot"></i>
+              </span>
+              <span style="text-align: end;">
+                <%= j.departement %>
+                <i class="fa-solid fa-location-dot"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+<div style="height: 100vh;">
+  <div class="container" style="display: flex;justify-content: center;align-items: center;">
+    <h1>Identifiez-vous</h1>
+    <br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+  <div class="container" style="width: 80%;">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  label: false,
+                  required: false,
+                  autofocus: true,
+                  placeholder: "Vôtre email",
+                  input_html: { autocomplete: "email" } %>
+                  <br>
+      <%= f.input :password,
+                  required: false,
+                  label: false,
+                  placeholder: "Vôtre mot de passe",
+                  input_html: { autocomplete: "current-password" } %>
+      <small><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></small>
+      <br>
+    </div>
+
+    <div class="form-actions" style="display: flex;justify-content: center;align-items: center;">
+      <%= f.button :submit, "Connexion", class: 'button' %>
+    </div>
+  <% end %>
+  <hr>
+  </div>
+  <br>
+  <div style="display: flex;justify-content: center;text-align: center;">
+    <small> Pas encore inscrit? <%= render "devise/shared/links" %></small>
+  </div>
+</div>

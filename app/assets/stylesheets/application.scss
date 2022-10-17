@@ -10,3 +10,29 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a, a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+.fixed {
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid white;
+  background: transparent;
+  backdrop-filter: blur(40px);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(240deg, #f0eaca 0%, rgba(255, 255, 255, 0) 150%), #b4b5b5;
+  min-height: 100vh;
+}
