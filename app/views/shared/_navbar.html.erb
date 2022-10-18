@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand", style: 'display: flex;align-items: flex-end;' do %>
-      <%= image_tag "logo.png", style: 'height: 40px' %> Final Claps
+      <%= image_tag "logo.png", style: 'height: 30px' %> Final Claps
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
             <img src="https://img.icons8.com/officel/344/circled-user-male-skin-type-6.png" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))" class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -19,11 +25,12 @@
               <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
+        <% else %>
+          <li class="nav-item" >
+            <%= link_to "Se connecter", user_session_path, class: "nav-link" %>
+            <%= link_to "C'est parti", role_path, class: "btn btn-large btn-secondary nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

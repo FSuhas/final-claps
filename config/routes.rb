@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :recruteurs, except: [:destroy]
   resources :candidats, except: [:destroy]
 
+  get "role", to: "pages#role"
+
 end

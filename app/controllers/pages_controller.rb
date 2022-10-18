@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home, :role]
   def home
     if params[:query].present?
       @jobs = Job.search_by_query(params[:query])
@@ -8,5 +8,8 @@ class PagesController < ApplicationController
       @jobs = Job.all
       @jobs = @jobs.where("date >= ?", Time.now).order(date: :asc)
     end
+  end
+  def role
+
   end
 end

@@ -8,9 +8,28 @@
   background-color: transparent;
   border-radius: 8px;
   box-shadow: 3px 4px 9px 0px #ebf2fa;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
   border: 1px solid #ebf2fa;
+  .card-home-item-title {
+    display: flex;
+    text-align: center;
+    color: $strong;
+    text-shadow: $secondary 1px 1px 1px;
+  }
+  .card-home-item-text {
+    display: flex;
+    text-align: justify;
+    font-size: 12px !important;
+    padding: 5px;
+    color: $gray;
+  }
+  .card-home-bas {
+    margin-top: 10px !important;
+    small {
+      margin-bottom: 0px !important;
+    }
+  }
 }
 
 // Smallest device

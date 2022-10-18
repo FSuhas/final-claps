@@ -8,10 +8,10 @@
               <img src="https://source.unsplash.com/random?cinema" alt="" style="width: 100%;height: 150px;border-radius: 8px 8px 0 0;">
               <div class="container card-home-item-content">
                 <strong class="card-home-item-title"><%= job.titre %></strong><br>
-                <small class="card-home-item-text"><%= job.description.truncate(100) %></small>
-                <div class="card-trip-pricing" style="display: flex;justify-content: space-between;">
-                    <p style="text-align: start;">Publié le <%= job.created_at.strftime("%d/%m") %>
-                    <p style="text-align: end;"><%= job.departement %> <i class="fa-solid fa-location-dot"></i></p>
+                <small class="card-home-item-text"><%= job.description.truncate(150) %></small>
+                <div class="card-home-bas" style="display: flex;justify-content: space-between;">
+                    <small style="text-align: start;">Publié le <%= job.created_at.strftime("%d/%m") %></small>
+                    <small style="text-align: end;"><%= job.departement %> <i class="fa-solid fa-location-dot"></i></small>
                 </div>
               </div>
             <% end %>
