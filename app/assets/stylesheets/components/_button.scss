@@ -28,13 +28,19 @@
 }
 
 .btn-primary {
+  border: 1px solid white;
+  transition: cubic-bezier(0.88, 1.13, 0.57, 0.39) 0.4s;
   &:hover {
-    background: white ;
+    background: $secondary !important;
+    color: $primary !important;
+    border: 1px solid $primary !important;
   }
 }
 
 .btn-secondary {
-  color: black;
+  color: $primary;
+  border: 1px solid $primary;
+  transition: cubic-bezier(0.88, 1.13, 0.57, 0.39) 0.4s;
   &:hover {
     color: white;
     background: $primary;

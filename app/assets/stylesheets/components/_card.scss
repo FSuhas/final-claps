@@ -5,16 +5,12 @@
 }
 
 .card-home {
-  background-color: #fff;
-  height: 91%;
+  background-color: transparent;
   border-radius: 8px;
-  box-shadow: 3px 4px 9px 0px #918888;
-  backdrop-filter: blur(5.7px);
-  -webkit-backdrop-filter: blur(5.7px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  margin-bottom: 5px;
-  padding: 16px;
-
+  box-shadow: 3px 4px 9px 0px #ebf2fa;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid #ebf2fa;
 }
 
 // Smallest device
@@ -33,7 +29,7 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .card-home {
+  .container-card-home {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -48,7 +44,7 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .container-card-home {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 

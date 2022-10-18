@@ -5,9 +5,10 @@
 
   .banner-titre {
     font-size: 2.5rem;
-    color: #a12727;
+    color: #064789;
     opacity: .8;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-weight: bold;
   }
 
   .banner-text {
@@ -18,7 +19,9 @@
   }
 
   span {
-    color: #f4a226;
+    color: #ebf2fa;
+    text-decoration: 1px solid #064789;
     font-weight: bold;
+    text-shadow: -2px 0 #064789, 0 2px #064789, 2px 0 #064789, 0 -2px #064789;
   }
 }
