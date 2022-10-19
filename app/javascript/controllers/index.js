@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import SweetalertController from "./sweetalert_controller"
+application.register("sweetalert", SweetalertController)
+
 import ToggleController from "./toggle_controller"
 application.register("toggle", ToggleController)
