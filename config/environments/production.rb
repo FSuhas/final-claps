@@ -76,7 +76,7 @@ Rails.application.configure do
     port: 587,
     user_name: "fs6400@gmail.com",
     password: ENV['GMX_PASSWORD'],
-    authentication: "plain",
+    authentication: "login",
     enable_starttls_auto: true,
     ssl: true
   }
