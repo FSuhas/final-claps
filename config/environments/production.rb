@@ -78,8 +78,7 @@ Rails.application.configure do
     password: ENV['SENDGRID_PASSWORD'],
     domain: "heroku.com",
     enable_starttls_auto: true,
-    ssl: true,
-
+    ssl: true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
