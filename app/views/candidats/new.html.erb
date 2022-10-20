@@ -1,0 +1,42 @@
+<%= render 'shared/navbar' %>
+<div class="container">
+  <%= simple_form_for @candidat do |f| %>
+            <%= f.input :nom,
+                        required: true,
+                        label: false %>
+            <%= f.input :prenom,
+                        required: true,
+                        label: false %>
+            <%= f.input :email,
+                        placeholder: current_user.email,
+                        label: false %>
+            <%= f.input :telephone,
+                        as: :string,
+                        required: true,
+                        autofocus: true,
+                        label: false,
+                        placeholder: "Votre Numéro de téléphone",
+                        input_html: { autocomplete: "telephone" } %>
+            <%= f.input :sexe,
+                        collection: ["Homme", "Femme", "Ne se prononce pas"],
+                        required: true,
+                        autofocus: true,
+                        label: "Vous êtes un/une ?",
+                        input_html: { autocomplete: "sexe" } %>
+            <%= f.input :departement,
+                        as: :string,
+                        required: true,
+                        autofocus: true,
+                        label: false,
+                        placeholder:  "Quel departement ?",
+                        input_html: { autocomplete: "departement" },
+                        hint: "Exemple: 75 pour Paris" %>
+            <%= f.input :infos,
+                        required: false,
+                        autofocus: true,
+                        label: false,
+                        placeholder: "Donnez en quelques mots envie de vous contacter ...",
+                        input_html: { autocomplete: "infos" } %>
+            <%= f.submit "S'inscrire", class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>

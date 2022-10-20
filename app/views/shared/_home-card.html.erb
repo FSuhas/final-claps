@@ -5,7 +5,7 @@
         <% @jobs.each do |job| %>
           <div class="card-home">
             <%= link_to job_path(job) do %>
-              <img src="https://source.unsplash.com/random?cinema" alt="" style="width: 100%;height: 150px;border-radius: 8px 8px 0 0;">
+              <img src="https://source.unsplash.com/random?cinema" alt="" style="object-fit: cover;object-position:bottom;width: 100%;height: 150px;border-radius: 8px 8px 0 0;">
               <div class="container card-home-item-content">
                 <strong class="card-home-item-title"><%= job.titre %></strong><br>
                 <small class="card-home-item-text"><%= job.description.truncate(150) %></small>

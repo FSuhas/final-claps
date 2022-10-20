@@ -52,6 +52,7 @@ gem 'devise'
 
 gem "pg_search"
 
+gem "cloudinary"
 
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"

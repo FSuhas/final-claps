@@ -26,7 +26,16 @@
   }
 }
 
-.show {
-  display: flex !important;
+#new_newsletter {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+.modal-content {
+  padding: 15px;
+}
+
+#newsletter_email {
+  text-align: center;
 }

@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
 require 'open-uri'
 require 'json'
 require 'date'
@@ -16,6 +8,8 @@ puts "------------------------------"
 sleep(1)
 
 puts "#destroy_all start ..."
+
+Newsletter.destroy_all
 
 Job.destroy_all
 
@@ -30,6 +24,7 @@ sleep(1)
 puts "#create User start ..."
 
 fabien = User.new(email: 'fabien@test.com', password: 'azerty', nom: 'Suhas', prenom: 'Fabien')
+fabien.photo.attach(io: URI.open("https://source.unsplash.com/random?profile?man"), filename: "fabien.png", content_type: "image/png")
 fabien.save!
 
 jessica = User.new(email: "jessica@test.com", password: 'azerty', nom: 'Bolle', prenom: 'Jessica')
@@ -39,7 +34,7 @@ puts "#create User done"
 sleep(1)
 puts "#create Candidat Recruteur start ..."
 
-candidat = Candidat.new(nom: 'fabien', user: fabien)
+candidat = Candidat.new(nom: 'fabien', user: fabien, departement: '75', telephone: '0606060606', sexe: 'Homme')
 candidat.save!
 
 recruteur = Recruteur.new(user: jessica)

@@ -5,26 +5,52 @@
     <br>
     <h1 class="banner-text">Découvre des missions pour les <span>intermittents</span> partout en France <br><br>
     <br>
-      <%= link_to new_candidat_path, class: 'btn btn-large btn-primary' do %>
-        <i class="fa-solid fa-user-plus" style="margin-right: 7px;"></i> Créer mon profil
+    <% if @user.candidat.nil? %>
+      <% if @user.recruteur.nil? %>
+        <%= link_to role_path, class: 'btn btn-large btn-primary' do %>
+          <i class="fa-solid fa-user-plus" style="margin-right: 7px;"></i> Créer mon profil
+        <% end %>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#alerte" class="btn btn-large btn-secondary">
+          <i class="fa-solid fa-bell" style="margin-right: 7px;"></i> Alerte
+        </button>
+        </h1>
+      <% else %>
+        <%= link_to new_job_path, class: 'btn btn-large btn-primary' do %>
+          <i class="fa-solid fa-plus" style="margin-right: 7px;"></i> Créer une mission
+        <% end %>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#alerte" class="btn btn-large btn-secondary">
+          <i class="fa-solid fa-bell" style="margin-right: 7px;"></i> Alerte
+        </button>
+        </h1>
       <% end %>
+    <% else  %>
       <button type="button" data-bs-toggle="modal" data-bs-target="#alerte" class="btn btn-large btn-secondary">
         <i class="fa-solid fa-bell" style="margin-right: 7px;"></i> Alerte
       </button>
-    </h1>
+      </h1>
+    <% end %>
   </div>
 </div>
 
 <div class="modal fade" id="alerte" tabindex="-1" aria-labelledby="bioLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="top: 20%;">
     <div class="modal-content" style="border-radius: 20px;">
       <div class="container" style="display: flex;justify-content: center;align-items: center;">
-        <h2>Votre nom : </h2>
+        <h3 style="text-align: center;">Recevez un mail tous les jours avec les derniéres missions publiées</h3>
         <br><br><br><br><br><br>
       </div>
-
-      <div class="container" style="width: 60%;">
-        </div>
+      <div class="container" style="display: flex;justify-content: center;align-items: center;">
+        <%= simple_form_for @news, data: { turbo_method: 'post' } do |f| %>
+          <%= f.input :email, label: false, pattern: {required: "[/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i]"}, placeholder: "Votre email", input_html: { class: "form-control" } %>
+          <br>
+          <%= f.button :submit, "S'inscrire", class: "btn btn-large btn-primary" %>
+        <% end %>
+      </div>
+      <small style="margin-top: 30px;text-align: center;">Seulement un mail par jour uniquement si de nouvelles missions sont publiées</small>
+      <div class="container" style="display: flex;justify-content: flex-end;position: absolute; top: 0;" >
+        <button data-bs-toggle="modal" style="border: none;background: none;">
+          <i class="fa-regular fa-circle-xmark" style="font-size: 50px; color: red;"></i>
+        </button>
       </div>
     </div>
   </div>

@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get "role", to: "pages#role"
 
+  resources :newsletters, only: [:create]
+
 end

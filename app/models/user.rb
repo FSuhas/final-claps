@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_one :candidat
+  has_one :recruteur
+
+  has_one_attached :photo
 end
