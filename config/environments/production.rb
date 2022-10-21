@@ -71,6 +71,18 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
 
+  config.action_mailer.smtp_settings = {
+    adress: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'heroku.com',
+    user_name: 'apikey',
+    password: ENV['SENDGRID_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    open_timeout: 5,
+    read_timeout: 5
+  }
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
