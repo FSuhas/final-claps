@@ -9,6 +9,6 @@ class ApplicationMailer < ActionMailer::Base
 
   def confirmation_instructions(user)
     @user = user
-    mail(to: @user.email, subject: "Confirmation instructions", template_path: 'devise/mailer', template_name: 'confirmation_instructions')
+    mail(to: @user.email, subject: "Confirmation instructions", template_path: 'devise/mailer', template_name: 'confirmation_instructions').deliver
   end
 end
