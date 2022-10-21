@@ -3,7 +3,7 @@ class ApplicationMailer < ActionMailer::Base
   include SendGrid
 
   prepend_view_path "app/views/devise/mailer"
-  default from: "support@final-calps.io"
+  default from: "fsuhas@gmx.com"
   layout 'mailer'
 
   from = SendGrid::Email.new(email: 'test@exemple.com')
