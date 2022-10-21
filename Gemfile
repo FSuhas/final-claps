@@ -54,6 +54,8 @@ gem "pg_search"
 
 gem "cloudinary"
 
+gem 'sendgrid-ruby'
+
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
