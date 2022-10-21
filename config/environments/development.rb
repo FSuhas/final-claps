@@ -16,9 +16,22 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
 
+  config.action_mailer.smtp_settings = {
+    adress: 'smtp.sendgrid.net',
+    port: 587,
+    user_name: 'apikey',
+    password: ENV['SENDGRID_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    open_timeout: 5,
+    read_timeout: 5,
+    ssl: true
+  }
 
   # Enable server timing
   config.server_timing = true
