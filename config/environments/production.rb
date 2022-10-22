@@ -65,22 +65,19 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.default_url_options = { host: 'final-claps.herokuapp.com' }
-  config.action_mailer.asset_host = 'https://final-claps.herokuapp.com'
 
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default charset: "utf-8"
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     adress: 'smtp.sendgrid.net',
-    port: 587,
+    port: '587',
     domain: 'final-claps.herokuapp.com',
     user_name: 'apikey',
     password: ENV['SENDGRID_API_KEY'],
-    authentication: 'plain',
-    enable_starttls_auto: true,
-    ssl: true
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
 
