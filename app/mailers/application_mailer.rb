@@ -9,6 +9,7 @@ class ApplicationMailer < ActionMailer::Base
   def confirmation_instructions
     @user = params[:user]
     mail(to: @user.email, subject: "Confirmation", template_type: "text/html", template_path: "devise/mailer", template_alias: "confirmation_instructions")
+
     from = Email.new(email: 'test@example.com')
     to = Email.new(email: 'test@example.com')
     subject = 'Sending with SendGrid is Fun'
