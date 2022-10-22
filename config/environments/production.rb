@@ -76,12 +76,9 @@ Rails.application.configure do
     port: 587,
     domain: 'heroku.com',
     user_name: 'apikey',
-    password: ENV['SENDGRID_PASSWORD'],
+    password: ENV['SENDGRID_API_KEY'],
     authentication: 'plain',
-    enable_starttls_auto: true,
-    open_timeout: 5,
-    read_timeout: 5,
-    ssl: true
+    enable_starttls_auto: true
   }
 
 
