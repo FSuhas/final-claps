@@ -2,6 +2,13 @@ class EmailMailer < ApplicationMailer
   require 'sendgrid-ruby'
   include SendGrid
 
+
+
+  def confirmation_mail(user)
+    @user = user
+    @token = user.confirmation_token
+    mail(to: @user.email, subject: 'Confirmation email')
+
   from = Email.new(email: 'fsuhas@gmx.com')
   to = Email.new(email: @user.email)
   subject = 'Corfirmation email'
@@ -14,11 +21,5 @@ class EmailMailer < ApplicationMailer
   puts response.status_code
   puts response.body
   puts response.headers
-
-
-  def confirmation_mail(user)
-    @user = user
-    @token = user.confirmation_token
-    mail(to: @user.email, subject: 'Confirmation email')
   end
 end
