@@ -5,12 +5,12 @@ class EmailMailer < ApplicationMailer
   def confirmation_mail(user)
     @user = user
     @token = user.confirmation_token
-    mail(to: @user.email, subject: 'Confirmation email')
+    email = mail(to: @user.email, subject: 'Confirmation email')
 
     from = Email.new(email: 'fsuhas@gmx.com')
     to = Email.new(email: @user.email)
     subject = 'Confirmation email'
-    content = Content.new(type: 'text/html', template_path: 'email_mailer/confirmation_mail.html.erb')
+    content = Content.new(type: 'text/html', value: email.body.to_s)
     mail = Mail.new(from, subject, to, content)
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
