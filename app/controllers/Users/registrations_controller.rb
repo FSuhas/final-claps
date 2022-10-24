@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     if @user.save
-      EmailMailer.with(user: @user).confirmation_instructions(@user).deliver_now
+      EmailMailer.with(user: @user).confirmation_mail(@user).deliver_now
       redirect_to root_path, notice: "Un email de confirmation vous a été envoyé"
     else
       render :new, alert: "Une erreur est survenue"
