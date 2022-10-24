@@ -2,8 +2,6 @@ class EmailMailer < ApplicationMailer
   require 'sendgrid-ruby'
   include SendGrid
 
-
-
   def confirmation_mail(user)
     @user = user
     @token = user.confirmation_token
@@ -12,7 +10,10 @@ class EmailMailer < ApplicationMailer
     from = Email.new(email: 'fsuhas@gmx.com')
     to = Email.new(email: @user.email)
     subject = 'Confirmation email'
-    content = Content.new(type: 'text/plain', template_path: 'email_mailer/confirmation_mail.html.erb')
+    content = Content.new(type: 'text/html',
+        value: '<p>Bienvenue <%= @email %> !</p>
+                <p>Vous pouvez confirmer l adresse e-mail de votre compte via le lien ci-dessous :</p>
+                <p><%= link_to "Confirmer mon compte", confirmation_url(@user, confirmation_token: @token) %></p>')
     mail = Mail.new(from, subject, to, content)
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
