@@ -10,10 +10,7 @@ class EmailMailer < ApplicationMailer
     from = Email.new(email: 'fsuhas@gmx.com')
     to = Email.new(email: @user.email)
     subject = 'Confirmation email'
-    content = Content.new(type: 'text/html',
-        value: '<p>Bienvenue <%= @email %> !</p>
-                <p>Vous pouvez confirmer l adresse e-mail de votre compte via le lien ci-dessous :</p>
-                <p><%= link_to "Confirmer mon compte", confirmation_url(@user, confirmation_token: @token) %></p>')
+    content = Content.new(type: 'text/html', value: 'Bonjour #{user.name}, merci de confirmer votre compte en cliquant sur ce lien: https://final-claps.herokuapp.com/users/confirmation?confirmation_token=#{user.confirmation_token}. A bientôt sur Final Claps !')
     mail = Mail.new(from, subject, to, content)
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
