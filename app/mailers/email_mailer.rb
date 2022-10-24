@@ -10,7 +10,7 @@ class EmailMailer < ApplicationMailer
     from = Email.new(email: 'fsuhas@gmx.com')
     to = Email.new(email: @user.email)
     subject = 'Confirmation email'
-    content = Content.new(type: 'text/html', value: `Bonjour #{@user.prenom}, merci de confirmer votre compte en cliquant sur le lien ci-dessous : https://final-claps.herokuapp.com/users/confirmation?confirmation_token=#{@token}`)
+    content = Content.new(type: 'text/html', template_path: 'email_mailer/confirmation_mail.html.erb')
     mail = Mail.new(from, subject, to, content)
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
