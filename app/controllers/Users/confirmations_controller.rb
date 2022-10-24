@@ -10,7 +10,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   def create
     @user = User.find_by(email: params[:user][:email])
     if @user
-      EmailMailer.with(user: @user).confirmation_instructions(@user).deliver_now
+      EmailMailer.with(user: @user).confirmation_mail(@user).deliver_now
       mail(to: @user.email, subject: 'Confirmation email')
       redirect_to root_path, notice: "Un email de confirmation vous a été envoyé"
     else
