@@ -7,9 +7,16 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # POST /resource/confirmation
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.find_by(email: params[:user][:email])
+    if @user
+      EmailMailer.with(user: @user).confirmation_instructions(@user).deliver_now
+      mail(to: @user.email, subject: 'Confirmation email')
+      redirect_to root_path, notice: "Un email de confirmation vous a été envoyé"
+    else
+      redirect_to new_user_confirmation_path, alert: "Aucun utilisateur trouvé"
+    end
+  end
 
   # GET /resource/confirmation?confirmation_token=abcdef
   # def show
