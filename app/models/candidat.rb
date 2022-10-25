@@ -4,6 +4,4 @@ class Candidat < ApplicationRecord
   validates :telephone, uniqueness: true
   validates :email, uniqueness: true
   validates :departement, numericality: { only_integer: true }, length: { is: 2 }
-
-
 end

@@ -51,4 +51,7 @@
     flex-direction: column !important;
     width: auto !important;
   }
+  .grid-footer {
+    grid-template-columns: 1fr !important;
+  }
 }

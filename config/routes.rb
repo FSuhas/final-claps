@@ -2,19 +2,18 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', confirmations: 'users/confirmations' }
 
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :newsletters, only: [:create]
+
+  get "role", to: "pages#role"
+
+  resources :recruteurs, except: [:destroy]
+  resources :candidats, except: [:destroy]
+
+  resources :profils, except: %i[destroy new create]
+  # post '/profils', to: 'profils#update'
 
   resources :jobs do
     resources :bookings, only: [:create, :update, :destroy]
   end
-  resources :recruteurs, except: [:destroy]
-  resources :candidats, except: [:destroy]
-
-  get "role", to: "pages#role"
-
-  resources :newsletters, only: [:create]
-
 end

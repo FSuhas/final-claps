@@ -1,5 +1,10 @@
 class CandidatsController < ApplicationController
 
+  def index
+    @user = current_user
+    @candidats = Candidat.all
+  end
+
   def new
     @user = current_user
     @candidat = Candidat.new(nom: current_user.nom, prenom: current_user.prenom, email: current_user.email)
