@@ -1,1 +1,53 @@
 // Specific CSS for your home-page
+
+.role {
+  position: absolute;
+  height: 26em;
+  bottom: -3.5em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  left: 0;
+  right: 0;
+  .grid-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    margin: 1em;
+    .left, .right {
+      .card-home {
+        padding: 35px;
+      }
+    }
+  }
+  h3 {
+    text-shadow: -1px 0 #064789, 0 1px #064789, 1px 0 #064789, 0 -1px #064789;
+  }
+  p {
+    text-shadow: -1px 0 #ffffff, 0 1px #0a0707, 1px 0 #1c1b1b, 0 -1px #bab5b5;
+    color: #f1f1f100;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 1100px) {
+  .role {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: initial;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 850px) {
+  .grid-home {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 850px) and (max-width: 1200px) {
+  .grid-home {
+    grid-template-columns: 1fr 1fr;
+  }
+}
