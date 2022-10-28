@@ -55,3 +55,9 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+@media (min-width: 100px) and (max-width: 850px ) {
+  .footer {
+    margin-top: 23rem !important;
+  }
+}
