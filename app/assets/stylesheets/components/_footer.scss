@@ -11,6 +11,11 @@
     color: $strong;
     text-shadow: $secondary 1px 1px 1px;
   }
+  .footer-haut, .footer-bas {
+    p {
+      color: white;
+    }
+  }
   .footer-bas {
     width: 100%;
     display: flex;
